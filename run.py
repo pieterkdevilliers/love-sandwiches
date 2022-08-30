@@ -3,6 +3,7 @@
 
 import gspread
 from google.oauth2.service_account import Credentials
+from pprint import pprint
 
 # Determines which apis our project should access.
 # This is written in capitals as it is a constant variable and will not change.
@@ -68,6 +69,24 @@ def update_sales_worksheet(data):
     print("Sales worksheet updated successfully.\n")
 
 
-data = get_sales_data()
-sales_data = [int(num) for num in data]
-update_sales_worksheet(sales_data)
+def calculate_surplus_data(sales_row):
+    """
+    Describe surplus data function here.
+    """
+    print("Calculating surplus data...\n")
+    stock = SHEET.worksheet("stock").get_all_values()
+    stock_row = stock[-1]
+    print(stock_row)
+
+def main():
+    """
+    Run all program functions
+    """
+    data = get_sales_data()
+    sales_data = [int(num) for num in data]
+    update_sales_worksheet(sales_data)
+    calculate_surplus_data(sales_data)
+
+
+print("Welcome to Love Sandwiches Data Automation.\n")
+main()
