@@ -3,7 +3,6 @@
 
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 
 # Determines which apis our project should access.
 # This is written in capitals as it is a constant variable and will not change.
@@ -29,7 +28,7 @@ def get_sales_data():
         print("Data should be six numbers, seperated by commas.")
         print("Example: 10,20,30,40,50,60\n")
 
-        data_str = input("Enter your data here: ")
+        data_str = input("Enter your data here:\n")
         
         sales_data = data_str.split(",")
 
